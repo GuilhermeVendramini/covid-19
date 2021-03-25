@@ -10,6 +10,7 @@ class WidgetTextTitle extends StatelessWidget {
       text,
       style: TextStyle(
         fontSize: 24.0,
+        fontWeight: FontWeight.bold,
       ),
     );
   }

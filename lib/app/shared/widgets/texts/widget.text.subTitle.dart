@@ -10,7 +10,6 @@ class WidgetTextSubTitle extends StatelessWidget {
       text,
       style: TextStyle(
         fontSize: 20.0,
-        color: Colors.white,
       ),
     );
   }

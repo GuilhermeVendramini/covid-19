@@ -12,12 +12,7 @@ class ContinentsPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('COVID 19'),
         ),
-        body: Center(
-          child: const SingleChildScrollView(
-            padding: EdgeInsets.all(20.0),
-            child: ContinentsWidgetBlockMain(),
-          ),
-        ),
+        body: ContinentsWidgetBlockMain(),
       ),
     );
   }

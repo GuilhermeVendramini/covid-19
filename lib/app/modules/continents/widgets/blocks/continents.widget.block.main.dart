@@ -1,7 +1,6 @@
 import 'package:covid_app/app/modules/continents/widgets/lists/continents.widget.list.covid.dart';
 import 'package:covid_app/app/shared/utils/snackbars/snackbar.default.dart';
 import 'package:covid_app/app/shared/widgets/icons/widget.icon.error.dart';
-import 'package:covid_app/app/shared/widgets/texts/widget.text.title.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:covid_app/app/modules/continents/cubit/continents.cubit.dart';
@@ -43,17 +42,7 @@ class _ContinentsWidgetBlockMainState extends State<ContinentsWidgetBlockMain> {
         if (state is ContinentsDone) {
           final covidContinents = state.covidContinents;
 
-          return Center(
-            child: Column(
-              children: [
-                WidgetTextTitle('Relatório por continentes'),
-                SizedBox(
-                  height: 20.0,
-                ),
-                ContinentsWidgetListCovid(covidContinents),
-              ],
-            ),
-          );
+          return ContinentsWidgetListCovid(covidContinents);
         }
 
         return const SizedBox();

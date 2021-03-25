@@ -1,7 +1,6 @@
 import 'package:covid_app/app/shared/models/covid/model.covid.continent.dart';
 import 'package:covid_app/app/shared/widgets/components/widget.component.labelAndData.dart';
-import 'package:covid_app/app/shared/widgets/texts/widget.text.label.dart';
-import 'package:covid_app/app/shared/widgets/texts/widget.text.subTitle.dart';
+import 'package:covid_app/app/shared/widgets/texts/widget.text.title.dart';
 import 'package:flutter/material.dart';
 
 class ContinentsWidgetBlockContinent extends StatelessWidget {
@@ -16,14 +15,18 @@ class ContinentsWidgetBlockContinent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(20.0),
+      margin: const EdgeInsets.only(right: 10, top: 10.0, bottom: 10.0),
       decoration: BoxDecoration(
-          border: Border.all(
-        color: Colors.white,
-      )),
+        color: Colors.blueGrey[200],
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+        border: Border.all(
+          color: Colors.white,
+        ),
+      ),
       child: ListView(
         children: [
-          Center(child: WidgetTextSubTitle(covidContinent.continent)),
+          Center(child: WidgetTextTitle(covidContinent.continent)),
           Divider(),
           divider,
           WidgetComponentLabelAndData(
@@ -51,16 +54,29 @@ class ContinentsWidgetBlockContinent extends StatelessWidget {
             '${covidContinent.todayDeaths}',
           ),
           divider,
-          WidgetTextLabel('Países:'),
-          Wrap(
+          ExpansionTile(
+            tilePadding: EdgeInsets.zero,
+            leading: Icon(
+              Icons.place,
+            ),
+            title: Text(
+              'Países:',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             children: [
-              ...covidContinent.countries.map((e) => Padding(
-                padding: const EdgeInsets.only(right: 10.0),
-                child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(e),
-                    ),
-              ))
+              Wrap(
+                children: [
+                  ...covidContinent.countries.map((e) => Padding(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text(e),
+                        ),
+                      ))
+                ],
+              ),
             ],
           ),
         ],

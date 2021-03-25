@@ -10,7 +10,6 @@ class WidgetTextLabel extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        color: Colors.white,
         fontWeight: FontWeight.bold,
       ),
     );

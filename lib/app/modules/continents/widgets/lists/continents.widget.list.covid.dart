@@ -11,24 +11,14 @@ class ContinentsWidgetListCovid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final PageController pageController =
-        PageController(viewportFraction: 0.94);
+        PageController(viewportFraction: 0.86);
 
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.70,
-      child: PageView.builder(
-        controller: pageController,
-        itemCount: covidContinents.length,
-        itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.only(right: 10.0),
-            padding: const EdgeInsets.all(10.0),
-            decoration: BoxDecoration(
-              color: Colors.blueGrey[200],
-            ),
-            child: ContinentsWidgetBlockContinent(covidContinents[index]),
-          );
-        },
-      ),
+    return PageView.builder(
+      controller: pageController,
+      itemCount: covidContinents.length,
+      itemBuilder: (context, index) {
+        return ContinentsWidgetBlockContinent(covidContinents[index]);
+      },
     );
   }
 }
