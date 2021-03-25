@@ -1,15 +1,16 @@
 import 'package:covid_app/app/shared/models/covid/model.covid.continent.dart';
 import 'package:covid_app/app/shared/models/covid/model.covid.country.dart';
-import 'package:covid_app/app/shared/repositories/novel/repository.novel.covid.dart';
+import 'package:covid_app/app/shared/repositories/worldometers/repository.worldometers.covid.dart';
+
 import 'package:dio/dio.dart';
 
 class ServiceCovid {
-  final _repositoryNovelCovid = RepositoryNovelCovidInstance.repository;
+  final _repositoryWorldometersCovid = RepositoryWorldometersCovidInstance.repository;
 
   Future<List<ModelCovidContinent>> getAllContinents() async {
     try {
       List<ModelCovidContinent> covidContinents = [];
-      Response result = await _repositoryNovelCovid.getAllContinents();
+      Response result = await _repositoryWorldometersCovid.getAllContinents();
 
       if (result.statusCode != 200) return [];
 
@@ -27,7 +28,7 @@ class ServiceCovid {
   Future<ModelCovidCountry> getSpecificCountry(String country) async {
     try {
       ModelCovidCountry covidCountry = ModelCovidCountry();
-      Response result = await _repositoryNovelCovid.getSpecificCountry(country);
+      Response result = await _repositoryWorldometersCovid.getSpecificCountry(country);
 
       if (result.statusCode != 200) return covidCountry;
 
