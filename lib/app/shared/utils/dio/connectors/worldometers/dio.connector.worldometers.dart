@@ -4,5 +4,5 @@ import 'package:covid_app/env.dart';
 class DioConnectorWorldometersInstance {
   DioConnectorWorldometersInstance._();
 
-  static final DioConnector dioConnector = DioConnector(Env.NOVEL_URL);
+  static final DioConnector dioConnector = DioConnector(Env.NINJA_URL);
 }
