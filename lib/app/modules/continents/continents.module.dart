@@ -10,7 +10,7 @@ class ContinentsModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      key: Key('AuthLoginModule'),
+      key: Key('ContinentsModule'),
       create: (context) => ContinentsCubit(),
       child: ContinentsPage(),
     );

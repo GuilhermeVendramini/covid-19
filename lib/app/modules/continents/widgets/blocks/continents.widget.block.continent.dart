@@ -98,11 +98,14 @@ class ContinentsWidgetBlockContinent extends StatelessWidget {
             children: [
               Wrap(
                 children: [
-                  ...covidContinent.countries.map((e) => Padding(
+                  ...covidContinent.countries.map((country) => Padding(
                         padding: const EdgeInsets.only(right: 10.0),
                         child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text(e),
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushNamed('/country', arguments: country);
+                          },
+                          child: Text(country),
                         ),
                       ))
                 ],

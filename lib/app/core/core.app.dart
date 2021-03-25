@@ -1,6 +1,7 @@
 import 'package:covid_app/app/core/themes/core.theme.default.dart';
 import 'package:covid_app/app/core/widgets/pages/core.widget.page.notFound.dart';
 import 'package:covid_app/app/modules/continents/continents.module.dart';
+import 'package:covid_app/app/modules/country/country.module.dart';
 import 'package:flutter/material.dart';
 
 class CoreApp extends StatelessWidget {
@@ -15,6 +16,7 @@ class CoreApp extends StatelessWidget {
       theme: CoreThemeDefault.themeData,
       routes: {
         '/': (context) => ContinentsModule(),
+        '/country': (context) => CountryModule(),
       },
       onUnknownRoute: (RouteSettings setting) {
         return MaterialPageRoute(

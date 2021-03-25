@@ -1,4 +1,5 @@
 import 'package:covid_app/app/shared/models/covid/model.covid.continent.dart';
+import 'package:covid_app/app/shared/models/covid/model.covid.country.dart';
 import 'package:covid_app/app/shared/repositories/novel/repository.novel.covid.dart';
 import 'package:dio/dio.dart';
 
@@ -18,6 +19,21 @@ class ServiceCovid {
           resultData.map((e) => ModelCovidContinent.fromJson(e)).toList();
 
       return covidContinents;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<ModelCovidCountry> getSpecificCountry(String country) async {
+    try {
+      ModelCovidCountry covidCountry = ModelCovidCountry();
+      Response result = await _repositoryNovelCovid.getSpecificCountry(country);
+
+      if (result.statusCode != 200) return covidCountry;
+
+      covidCountry = ModelCovidCountry.fromJson(result.data);
+
+      return covidCountry;
     } catch (e) {
       throw e;
     }

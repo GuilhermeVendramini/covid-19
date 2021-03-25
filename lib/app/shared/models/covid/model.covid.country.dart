@@ -10,10 +10,10 @@ class ModelCovidCountry {
   int todayRecovered;
   int active;
   int critical;
-  int casesPerOneMillion;
-  int deathsPerOneMillion;
+  double casesPerOneMillion;
+  double deathsPerOneMillion;
   int tests;
-  int testsPerOneMillion;
+  double testsPerOneMillion;
   int population;
   String continent;
   int oneCasePerPeople;
@@ -62,18 +62,22 @@ class ModelCovidCountry {
     todayRecovered = json['todayRecovered'];
     active = json['active'];
     critical = json['critical'];
-    casesPerOneMillion = json['casesPerOneMillion'];
-    deathsPerOneMillion = json['deathsPerOneMillion'];
+    casesPerOneMillion = double.tryParse(json['casesPerOneMillion'].toString());
+    deathsPerOneMillion =
+        double.tryParse(json['deathsPerOneMillion'].toString());
     tests = json['tests'];
-    testsPerOneMillion = json['testsPerOneMillion'];
+    testsPerOneMillion = double.tryParse(json['testsPerOneMillion'].toString());
     population = json['population'];
     continent = json['continent'];
     oneCasePerPeople = json['oneCasePerPeople'];
     oneDeathPerPeople = json['oneDeathPerPeople'];
     oneTestPerPeople = json['oneTestPerPeople'];
-    activePerOneMillion = json['activePerOneMillion'];
-    recoveredPerOneMillion = json['recoveredPerOneMillion'];
-    criticalPerOneMillion = json['criticalPerOneMillion'];
+    activePerOneMillion =
+        double.tryParse(json['activePerOneMillion'].toString());
+    recoveredPerOneMillion =
+        double.tryParse(json['recoveredPerOneMillion'].toString());
+    criticalPerOneMillion =
+        double.tryParse(json['criticalPerOneMillion'].toString());
   }
 
   Map<String, dynamic> toJson() {
@@ -111,8 +115,8 @@ class CountryInfo {
   int iId;
   String iso2;
   String iso3;
-  int lat;
-  int long;
+  double lat;
+  double long;
   String flag;
 
   CountryInfo({this.iId, this.iso2, this.iso3, this.lat, this.long, this.flag});
@@ -121,8 +125,8 @@ class CountryInfo {
     iId = json['_id'];
     iso2 = json['iso2'];
     iso3 = json['iso3'];
-    lat = json['lat'];
-    long = json['long'];
+    lat = double.tryParse(json['lat'].toString());
+    long = double.tryParse(json['long'].toString());
     flag = json['flag'];
   }
 

@@ -26,4 +26,20 @@ class _RepositoryNovelCovidInstance {
       throw e;
     }
   }
+
+  Future<Response> getSpecificCountry(String country) async {
+    try {
+      Response _response = await _dio.get(
+        '/v2/countries/$country',
+        queryParameters: {'yesterday': true, 'strict': true},
+        options: Options(
+          contentType: 'application/ld+json;',
+        ),
+      );
+
+      return _response;
+    } catch (e) {
+      throw e;
+    }
+  }
 }
