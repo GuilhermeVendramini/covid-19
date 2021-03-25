@@ -16,13 +16,21 @@ class ContinentsWidgetBlockContinent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20.0),
-      margin: const EdgeInsets.only(right: 10, top: 10.0, bottom: 10.0),
+      margin: const EdgeInsets.only(right: 20, top: 20.0, bottom: 20.0),
       decoration: BoxDecoration(
         color: Colors.blueGrey[200],
-        borderRadius: BorderRadius.all(Radius.circular(40)),
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
         border: Border.all(
           color: Colors.white,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.4),
+            spreadRadius: 4,
+            blurRadius: 6,
+            offset: Offset(2, 2), // changes position of shadow
+          ),
+        ],
       ),
       child: ListView(
         children: [
@@ -40,8 +48,13 @@ class ContinentsWidgetBlockContinent extends StatelessWidget {
           ),
           divider,
           WidgetComponentLabelAndData(
-            'Total de recuperados',
+            'Total de curados',
             '${covidContinent.recovered}',
+          ),
+          divider,
+          WidgetComponentLabelAndData(
+            'Curados hoje',
+            '${covidContinent.todayRecovered}',
           ),
           divider,
           WidgetComponentLabelAndData(
@@ -54,6 +67,16 @@ class ContinentsWidgetBlockContinent extends StatelessWidget {
             '${covidContinent.todayDeaths}',
           ),
           divider,
+          WidgetComponentLabelAndData(
+            'Testes realizados:',
+            '${covidContinent.tests}',
+          ),
+          divider,
+          WidgetComponentLabelAndData(
+            'População:',
+            '${covidContinent.population}',
+          ),
+          divider,
           ExpansionTile(
             tilePadding: EdgeInsets.zero,
             leading: Icon(
@@ -63,6 +86,13 @@ class ContinentsWidgetBlockContinent extends StatelessWidget {
               'Países:',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
+                shadows: <Shadow>[
+                  Shadow(
+                    offset: Offset(1.0, 1.0),
+                    blurRadius: 2.0,
+                    color: Colors.black26,
+                  ),
+                ],
               ),
             ),
             children: [

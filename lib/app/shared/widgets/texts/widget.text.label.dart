@@ -11,6 +11,13 @@ class WidgetTextLabel extends StatelessWidget {
       text,
       style: TextStyle(
         fontWeight: FontWeight.bold,
+        shadows: <Shadow>[
+          Shadow(
+            offset: Offset(1.0, 1.0),
+            blurRadius: 2.0,
+            color: Colors.black26,
+          ),
+        ],
       ),
     );
   }
